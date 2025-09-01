@@ -1,0 +1,49 @@
+<%- include("../partials/admin_header.ejs") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+    }
+
+    .button-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .button-column button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .button-column button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="button-column">
+      <button onclick="location.href='/remove_course'">Remove Courses</button>
+      <button onclick="location.href='/remove_student'">Remove Student</button>
+    </div>
+  </div>
+
+</body>
+</html>

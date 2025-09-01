@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= route1 %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="/RDBMS/public/styles/enhanced-styles.css" />
+    <style>
+      :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3f37c9;
+        --success-color: #4cc9f0;
+        --danger-color: #f72585;
+        --warning-color: #f8961e;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --text-color: #333333;
+        --bg-color: #ffffff;
+        --border-radius: 8px;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fb;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .login-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        background-color: var(--bg-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+
+      .login-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .login-header h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .login-header p {
+        margin: 0;
+        color: #666;
+      }
+
+      .login-form {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+      }
+
+      .form-control-icon {
+        position: relative;
+      }
+
+      .form-control-icon i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        color: #666;
+      }
+
+      .form-control-icon input {
+        padding-right: 2.5rem;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .alert {
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .alert-danger {
+        background-color: rgba(247, 37, 133, 0.1);
+        border: 1px solid var(--danger-color);
+        color: var(--danger-color);
+      }
+
+      .login-footer {
+        text-align: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid #eee;
+      }
+
+      .login-footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .login-footer a:hover {
+        text-decoration: underline;
+      }
+
+      .home-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .home-link:hover {
+        color: var(--primary-color);
+      }
+
+      .home-link i {
+        margin-right: 0.5rem;
+      }
+
+      /* Logo Styles */
+      .login-logo {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .login-logo img {
+        max-width: 100px;
+        height: auto;
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login-container {
+        animation: fadeIn 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-logo">
+        <i
+          class="bx bx-book-reader"
+          style="font-size: 4rem; color: var(--primary-color)"
+        ></i>
+      </div>
+
+      <div class="login-header">
+        <h1><%= route1 %></h1>
+        <p>Enter your credentials to access your account</p>
+      </div>
+
+      <% if (WrongId && WrongId.trim() !== ' ') { %>
+      <div class="alert alert-danger">
+        <i class="bx bx-error-circle"></i> <%= WrongId %>
+      </div>
+      <% } %>
+
+      <form class="login-form" action="/<%= route %>" method="POST">
+        <div class="form-group">
+          <label for="<%= route %>Id"><%= Id %></label>
+          <div class="form-control-icon">
+            <input
+              type="text"
+              id="<%= route %>Id"
+              name="<%= route %>Id"
+              class="form-control"
+              placeholder="Enter your <%= Id %>"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <div class="login-footer">
+        <p>Don't have an account? <a href="#">Contact administrator</a></p>
+        <a href="/" class="home-link">
+          <i class="bx bx-arrow-back"></i> Back to home
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

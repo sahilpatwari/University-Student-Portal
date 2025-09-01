@@ -1,0 +1,20 @@
+<%- include("../semester_g.ejs") %>
+<body>
+    <h3 style="text-align:center;">Grades</h3>
+<table>
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+        <th>Grade</th>
+    </tr>
+    <% grades.forEach(grade => { %>
+        <tr>
+          <td><%= grade.Course_ID %></td>
+          <td><%=  grade.Course_Name %></td>
+          <td><%= grade.Credits %></td>
+          <td><%= grade.Grade %></td>
+        </tr>
+      <% }); %>
+</table>
+</body>

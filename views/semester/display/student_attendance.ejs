@@ -1,0 +1,26 @@
+<%- include("../semester_a.ejs") %>
+<body>
+    <h3 style="text-align:center;">Attendance Record</h3>
+<table>
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+        <th>Total Days Present</th>
+        <th>Total Days Absent</th>
+        <th>Total Days</th>
+        <th> Percentage</th>
+    </tr>
+    <% attended.forEach(attend=> { %>
+        <tr>
+          <td><%= attend.Course_ID %></td>
+          <td><%=  attend.Course_Name %></td>
+          <td><%= attend.Credits %></td>
+          <td><%= attend.Total_Classes_Present %></td>
+          <td><%= attend.Total_Classes_Absent %></td>
+          <td><%= attend.Total_Classes_Held %></td>
+          <td><%= attend.Attendance_Percentage %></td>
+        </tr>
+      <% }); %>
+</table>
+</body>

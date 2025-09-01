@@ -1,0 +1,18 @@
+<%- include("../semester_c.ejs") %>
+<body>
+    <h3 style="text-align:center;">Courses Enrolled</h3>
+<table>
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+    </tr>
+    <% courses.forEach(course => { %>
+        <tr>
+          <td><%= course.Course_ID %></td>
+          <td><%= course.Course_Name %></td>
+          <td><%= course.Credits %></td>
+        </tr>
+      <% }); %>
+</table>
+</body>

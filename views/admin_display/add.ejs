@@ -1,0 +1,50 @@
+<%- include("../partials/admin_header.ejs") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+    }
+
+    .button-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .button-column button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .button-column button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="button-column">
+      <button onclick="location.href='/add_course'">Add Courses</button>
+      <button onclick="location.href='/add_student'">Add Student</button>
+      <button onclick="location.href='/assign_course'">Assign Courses</button>
+    </div>
+  </div>
+
+</body>
+</html>
